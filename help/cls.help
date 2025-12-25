@@ -1,0 +1,80 @@
+Cls Help
+---------------
+
+📄 Module Documentation: cls
+The cls module is a core system utility designed to refresh the user interface by clearing the terminal display.
+
+
+📋 DescriptionThis module clears the terminal screen and resets the cursor position to the top-left corner. It provides a clean workspace for the user, removing previous command outputs and logs.
+
+
+⚙️ Technical Metadata
+* System Name: cls
+* Aliases: clear
+* Group: core
+* Category: utility
+
+
+🚀 Usage
+The command can be triggered using the primary name or the standard Unix-style alias:
+
+Bash
+cls
+# or
+clear
+
+
+🔍 Technical Implementation
+Unlike methods that call external OS binaries (like subprocess.run('clear')), this module uses ANSI Escape Sequences sent directly to the standard output. This makes it faster and more lightweight.
+
+* Sequence \033[2J: Clears the entire screen.
+* Sequence \033[H: Moves the cursor to the home position (top-left).
+* Buffer Flush: The module forces a sys.stdout.flush() to ensure the screen clears immediately, even if the output is buffered.
+
+
+💻 Compatibility
+Environment			Compatibility	Note
+Linux/macOS			Full			Supported by all standard shells (Bash, Zsh).
+Windows 10/11		Full			Supported in CMD and PowerShell.
+Legacy Windows		Partial			Requires ANSI support enabled in the terminal.
+
+
+--PL------------------------------------
+📄 Dokumentacja Modułu: cls
+Moduł cls to podstawowe narzędzie systemowe służące do odświeżania interfejsu użytkownika poprzez czyszczenie okna terminala.
+
+
+📋 Opis
+Moduł czyści zawartość ekranu terminala i resetuje pozycję kursora do lewego górnego rogu. Pozwala to na uzyskanie „czystej karty” i usunięcie wyników poprzednich komend lub logów.
+
+
+⚙️ Informacje techniczne
+Nazwa systemowa: cls
+* Aliasy: clear
+* Grupa: core
+* Kategoria: utility
+
+
+🚀 Użycie
+Komendę można wywołać za pomocą nazwy głównej lub standardowego aliasu znanego z systemów Unix:
+
+Bash
+cls
+# lub
+clear
+
+
+🔍 Implementacja techniczna
+W przeciwieństwie do metod wywołujących zewnętrzne pliki wykonywalne systemu operacyjnego (np. os.system('clear')), moduł ten wykorzystuje sekwencje sterujące ANSI wysyłane bezpośrednio do standardowego wyjścia. Dzięki temu jest szybszy i bardziej uniwersalny.
+
+
+* Sekwencja \033[2J: Powoduje wyczyszczenie całego ekranu.
+* Sekwencja \033[H: Przenosi kursor do pozycji „home” (lewy górny róg).
+* Flush bufora: Moduł wymusza sys.stdout.flush(), co gwarantuje natychmiastowe wyczyszczenie ekranu, nawet jeśli strumień wyjściowy jest buforowany.
+
+
+💻 Kompatybilność
+Środowisko			Kompatybilność		Uwagi
+Linux / macOS		Pełna				Obsługiwane przez wszystkie standardowe powłoki (Bash, Zsh).
+Windows 10 / 11		Pełna				Wspierane w CMD, PowerShell oraz Windows Terminal.
+Starsze Windows		Częściowa			Wymaga terminala obsługującego standard ANSI.

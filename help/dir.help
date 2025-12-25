@@ -1,0 +1,55 @@
+Dir Help
+---------------
+
+Description
+The dir module is an advanced directory listing utility modeled after the Windows system command, enhanced with syntax highlighting and additional path management features.
+
+
+⚙️ Technical Metadata / Informacje techniczne
+
+* System Name: dir
+* Group: core
+* Category: utility
+
+
+Arguments and Flags / Parametry i Flagi
+
+Flag / Argument		Description (EN)							Opis (PL)
+[path]				Path to list (default: current)				Ścieżka do wyświetlenia (domyślnie: bieżąca)
+[pattern]			Wildcard filter (e.g. *.py)					Filtrowanie plików (np. *.txt)
+/drives				List all available logic drives				Wyświetla dostępne dyski logiczne
+/cd [path]			Change working directory before listing		Zmienia katalog roboczy przed listowaniem
+/s					Recursive listing (subdirectories)			Listowanie rekurencyjne (podkatalogi)
+/b					Bare format (names only)					Format uproszczony (tylko nazwy)
+/ah					Show hidden items only						Pokaż tylko ukryte elementy
+
+
+Syntax Highlighting / Kolorowanie Składni
+Moduł automatycznie rozpoznaje typy plików i nadaje im kolory:
+
+CYAN:   Directories / Katalogi
+GREEN:  Executable files and scripts / Pliki wykonywalne i skrypty (.exe, .bat, .cmd, .ps1)
+YELLOW: Archives and compressed files / Archiwa i pliki skompresowane (.zip, .7z, .rar, .tar)
+
+
+🔍 Usage Example / Przykład użycia
+
+* Listing Python files in subdirectories: / Listowanie plików Pythona w podkatalogach:
+dir *.py /s
+
+* Checking available drives: / Sprawdzanie dostępnych dysków:
+dir /drives
+
+* Quick directory change and listing: / Szybka zmiana katalogu i listowanie:
+dir /cd C:\Windows /b
+
+
+🛠 Advanced Features
+* Integration with Rich: If the Rich library is available, the module generates an aesthetically pleasing table with headers.
+* Windows Attributes: The /ah function uses ctypes to check the actual system attributes of files (Hidden).
+* Disk Statistics: Displays the total file size and free disk space in bytes.
+
+Zaawansowane funkcje
+* Integracja z Rich: Jeśli biblioteka rich jest dostępna, moduł generuje estetyczną tabelę z nagłówkami.
+* Atrybuty Windows: Funkcja /ah korzysta z ctypes, aby sprawdzać rzeczywiste atrybuty systemowe plików (Hidden).
+* Statystyki Dysku: Wyświetla łączny rozmiar plików oraz wolne miejsce na dysku w bajtach.

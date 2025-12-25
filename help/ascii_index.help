@@ -1,0 +1,98 @@
+ASCII Index Help
+----------------
+
+
+📄 Module Documentation: ascii.index
+This module is designed to browse and index ASCII art resources stored within the system.
+
+
+📋 DescriptionThe ascii.index module scans the dedicated /ascii directory for files with the .ascii extension. For every file found, it displays the filename and provides a brief preview of the first non-empty line of content.
+
+
+⚙️ Technical Metadata
+* System Name: ascii.index
+* Aliases: ascii.list, ai
+* Group: ASCII
+* Category: System
+
+
+🚀 UsageYou can invoke this module directly or via its defined aliases:
+
+Bash
+python -m modules.ascii_index
+# or within the command dispatcher:
+ai
+ascii.list
+
+
+🔍 Key Features
+1) Automatic Discovery: Dynamically locates the ascii folder relative to the project root.
+2) Smart Preview: Extracts the first meaningful line of text (truncated to 50 characters) to help you identify the art without opening the full file.
+3) Error Handling: Gracefully handles missing directories, empty folders, and file encoding issues (using UTF-8 with ignored errors)
+4) .UI Formatting: Uses color-coded output (Cyan for filenames, Yellow for warnings) to ensure high readability in the terminal.
+
+
+⚠️ Potential Status Messages
+Message								Meaning
+* ASCII directory not found.			The ascii folder is missing from the application root.
+* No .ascii files found.				The folder exists but contains no files with the .ascii suffix.
+* Found X .ascii files:				Success message indicating the number of indexed files.
+
+
+🛠 Example Output
+Plaintext
+Found 3 .ascii files:
+----------------------------------------
+logo.ascii -  _________________
+dragon.ascii -      <>=======()
+banner.ascii -  ::: WELCOME :::
+
+
+--PL------------------------------------
+📄 Dokumentacja Modułu: ascii.index
+Moduł ten służy do przeglądania i indeksowania zasobów grafiki tekstowej (ASCII art) przechowywanych w systemie.
+
+
+📋 Opis
+ascii.index skanuje dedykowany katalog /ascii w poszukiwaniu plików z rozszerzeniem .ascii. Dla każdego znalezionego pliku wyświetla jego nazwę oraz krótki podgląd pierwszej niepustej linii zawartości.
+
+
+⚙️ Informacje techniczne
+* Nazwa systemowa: ascii.index
+* Aliasy: ascii.list, ai
+* Grupa: ASCII
+* Kategoria: System
+
+
+🚀 Użycie
+Możesz wywołać ten moduł bezpośrednio lub poprzez jeden z aliasów:
+
+Bash
+python -m modules.ascii_index
+# lub wewnątrz dyspozytora:
+ai
+ascii.list
+
+
+🔍 Funkcjonalność
+1) Lokalizacja plików: Automatycznie odnajduje folder ascii względem struktury katalogów projektu.
+2) Walidacja: Sprawdza istnienie katalogu oraz obecność plików. Jeśli katalog jest pusty, wyświetla stosowny komunikat.
+3) Podgląd (Preview): Wyświetla pierwszą napotkaną linię tekstu z pliku (do 50 znaków), co ułatwia identyfikację grafiki bez jej pełnego otwierania.
+4) Formatowanie: Wyniki są kolorowane (Cyan dla nazw plików) dla poprawy czytelności w terminalu.
+
+
+⚠️ Możliwe komunikaty
+Komunikat						Znaczenie
+
+ASCII directory not found.      Brak folderu ascii w głównej lokalizacji programu.
+No .ascii files found.			Folder istnieje, ale nie zawiera plików z rozszerzeniem .ascii.
+Found X .ascii files:			Wyświetla listę znalezionych zasobów.
+
+
+🛠 Przykładowy wynik
+Plaintext
+Found 3 .ascii files:
+----------------------------------------
+logo.ascii -  _________________
+dragon.ascii -      <>=======()
+banner.ascii -  ::: WELCOME :::
