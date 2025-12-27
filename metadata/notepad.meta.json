@@ -1,0 +1,8 @@
+{
+  "name": "Notepad",
+  "description": "Simple notepad cli module",
+  "aliases": ["note"],
+  "args": [  ]
+  ,"group": "Notepad",
+  "category": "Office"
+}

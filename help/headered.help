@@ -1,0 +1,43 @@
+---
+name: headered
+aliases: hdr, headered
+description: Module with embedded header metadata.
+category: system
+---
+
+NAME
+    headered — simple module demonstrating embedded metadata headers.
+
+SYNOPSIS
+    headered [text]
+    hdr [text]
+
+DESCRIPTION
+    This module prints the word "Headered" followed by any arguments
+    passed to it. It is implemented as a batch script and includes an
+    embedded metadata header between ::META-START and ::META-END.
+
+    The metadata block defines:
+        • name        — module name
+        • description — short module description
+        • aliases     — alternative command names
+
+BEHAVIOR
+    • When invoked, the module prints:
+          Headered <arguments>
+
+    • If no arguments are provided, only "Headered" is printed.
+
+    • The script exits with code 0.
+
+EXAMPLES
+    headered test
+        Prints: Headered test
+
+    hdr one two three
+        Prints: Headered one two three
+
+NOTES
+    This module is implemented as a Windows batch file (.bat).
+    The metadata header is ignored by CMD but can be parsed by
+    external tools or your module loader.

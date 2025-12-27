@@ -1,0 +1,8 @@
+{
+  "name": "headered",
+  "description": "Module with embedded header metadata",
+  "aliases": ["hdr"],
+  "args": []
+  ,"group": "core",
+  "category": "utility"
+}

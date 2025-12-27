@@ -1,0 +1,89 @@
+Color ASCII drawing editor.
+---
+name: paint
+aliases: paintcli, painter
+description: Color ASCII drawing editor for the Windows console.
+category: graphics
+---
+
+NAME
+    paint — an interactive ASCII drawing editor running in the Windows console.
+
+SYNOPSIS
+    paint
+    paintcli
+    painter
+
+DESCRIPTION
+    Paint CLI is an interactive ASCII-based drawing tool that runs directly
+    in the terminal. It allows you to draw characters, choose colors, save
+    your artwork, and load previously saved drawings.
+
+    The program uses full-screen console rendering, hides the cursor,
+    and updates the canvas in real time.
+
+FEATURES
+    • Draw colored points (#) on a grid.
+    • Erase points (.) with the eraser tool.
+    • Five-color palette.
+    • Save drawings to .txt files.
+    • Load drawings from the Paint directory.
+    • File browser with W/S navigation.
+    • About screen with author information.
+    • Clear the entire canvas.
+
+CONTROLS
+    WASD — move cursor (@)  
+    1–5  — select color from palette  
+    R    — draw point (#)  
+    E    — erase point (.)  
+    P    — save drawing  
+    O    — open/load file  
+    C    — clear canvas  
+    N    — show information/about  
+    Q    — quit application  
+
+COLOR PALETTE
+    1 — Green (#)
+    2 — Red (#)
+    3 — Blue (#)
+    4 — Yellow (#)
+    5 — Magenta (#)
+
+SAVE LOCATION
+    All drawings are saved automatically to:
+        %userprofile%\.polsoft\Paint\
+
+    Files are named using the timestamp format:
+        paint_YYYYMMDD_HHMMSS.txt
+
+LOADING FILES
+    When pressing O:
+        • A list of .txt files is displayed.
+        • Navigation: W/S
+        • Open file: O
+        • Return to canvas: Q
+
+    Only the following characters are interpreted:
+        # — drawn point (green)
+        . — empty space
+
+EXAMPLES
+    paint
+        Launches the editor.
+
+    painter
+        Alias — same behavior.
+
+    paintcli
+        Another alias.
+
+NOTES
+    • Works only on Windows (uses msvcrt).
+    • Requires ANSI-compatible console (Windows 10+).
+    • Cursor is hidden during operation and restored on exit.
+
+AUTHOR
+    Sebastian Januchowski  
+    Email:  polsoft.its@fastservice.com  
+    GitHub: https://github.com/seb07uk

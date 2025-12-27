@@ -1,0 +1,60 @@
+lists all available .help files.
+
+---
+name: help.index
+aliases: help.list, hl
+group: Help
+category: System
+description: Lists all available .help files in the help directory.
+---
+
+NAME
+    help.index — lists all .help files available in the system.
+
+SYNOPSIS
+    help.index
+    help.list
+    hl
+
+DESCRIPTION
+    Scans the main "help" directory and prints a list of all .help files.
+    If metadata is found inside a help file (YAML frontmatter), the module
+    extracts the "description" field. If no metadata is present, the first
+    non-empty line of the file is used as a fallback description.
+
+    The module automatically handles missing directories, empty help folders,
+    and unreadable files.
+
+BEHAVIOR
+    • If the help directory does not exist:
+          Prints a warning message.
+
+    • If no .help files are found:
+          Prints a notice and exits.
+
+    • If help files exist:
+          Prints the number of files and a formatted list:
+              <filename.help> - <description>
+
+    • Long descriptions are truncated to 50 characters.
+
+DIRECTORY STRUCTURE
+    The help directory is expected at:
+        <root>/help
+
+    Where <root> is two levels above this module:
+        modules/help_index.py → modules → <root>
+
+EXAMPLES
+    hl
+        Lists all available help files.
+
+    help.index
+        Same as above.
+
+    help.list
+        Alias for help.index.
+
+NOTES
+    This module attempts to import color utilities from modules.dispatcher.
+    If unavailable, it falls back to basic ANSI color codes.

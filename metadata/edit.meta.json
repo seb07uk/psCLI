@@ -1,0 +1,8 @@
+{
+  "name": "Edit",
+  "description": "Microsoft Edit v1.2.1 (2025)",
+  "aliases": ["edit"],
+  "args": []
+  ,"group": "Text Editor",
+  "category": "Office"
+}

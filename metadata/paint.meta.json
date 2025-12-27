@@ -1,0 +1,8 @@
+{
+  "name": "Paint",
+  "description": "Simple paint cli module",
+  "aliases": ["paint"],
+  "args": [  ],
+  "group": "Paint Cli",
+  "category": "Office"
+}

@@ -1,0 +1,65 @@
+print text with ANSI-colored output
+------------------------------------------
+
+NAME
+       echo - print text with ANSI-colored output
+
+SYNOPSIS
+       e echo <text>
+
+DESCRIPTION
+       The echo module prints the text provided as arguments.  It is
+       implemented in pure Python and includes ANSI color support and
+       basic error handling.
+
+       When invoked without arguments, echo displays a usage message.
+       When text is provided, it prints the text in green.  Errors are
+       reported in red.
+
+OPTIONS
+       This command accepts no options.  All arguments are treated as
+       text to be echoed.
+
+USAGE
+       e echo Hello world
+              Prints "Hello world" in green.
+
+       e echo
+              Displays a usage message in yellow.
+
+FUNCTIONS
+       run(args=None)
+              Main entry point.  Called automatically by the system.
+              Handles argument parsing, colored output, and error
+              reporting.
+
+       echo(text)
+              Helper function that returns the provided text unchanged.
+
+COLORS
+       The module uses the following ANSI escape sequences:
+
+              RESET   \033[0m
+              RED     \033[31m
+              GREEN   \033[32m
+              YELLOW  \033[33m
+              CYAN    \033[36m
+
+ERRORS
+       If an exception occurs during execution, a message is printed
+       in red describing the error.
+
+EXAMPLES
+       e echo "This is a test"
+              Prints the text in green.
+
+       e echo
+              Shows usage instructions.
+
+AUTHOR
+       Written in pure Python.
+
+SEE ALSO
+       printf(1)
+
+ECHO(1)                     User Commands                     ECHO(1)

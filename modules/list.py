@@ -25,7 +25,7 @@ except Exception:
 
 
 META = {
-    "name": "List",
+    "name": "list",
     "description": "List files and modules with colored output",
     "aliases": ["list", "ls"],
     "args": ["[path]"],

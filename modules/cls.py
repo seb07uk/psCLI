@@ -1,9 +1,9 @@
 import sys
 
 META = {
-    "name": "cls",
+    "name": "clear",
     "description": "Clears the terminal screen",
-    "aliases": ["clear"],
+    "aliases": ["cls", "clear"],
     "group": "core",
     "category": "utility",
 }

@@ -1,0 +1,8 @@
+{
+  "name": "Calculator",
+  "description": "Calculator Pro v1.5 CLI",
+  "aliases": ["calc"],
+  "args": [  ],
+  "group": "Calculator",
+  "category": "Office"
+}

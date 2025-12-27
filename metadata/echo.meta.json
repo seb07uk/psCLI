@@ -1,0 +1,8 @@
+{
+  "name": "echo",
+  "description": "print text with ANSI-colored output",
+  "aliases": ["e"],
+  "args": []
+  ,"group": "core",
+  "category": "utility"
+}

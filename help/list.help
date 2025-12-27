@@ -1,0 +1,62 @@
+list files and modules with colored output.
+---
+name: List
+aliases: list, ls
+args: [path]
+category: utility
+description: List files and modules with colored output.
+---
+
+NAME
+    List — display files and directories with colored output.
+
+SYNOPSIS
+    list [path]
+    ls [path]
+
+DESCRIPTION
+    Lists files and directories in the specified path.
+    If no path is provided, the current working directory is used.
+
+    The command supports colored output:
+        • Directories are shown in cyan.
+        • Executable files are shown in green.
+        • Regular files are shown without color.
+        • Errors are shown in red.
+        • Empty directories are indicated in yellow.
+
+    If the target is a single file, its name and size are displayed.
+
+BEHAVIOR
+    • If the path does not exist:
+          Prints an error and returns exit code 2.
+
+    • If the path is a file:
+          Prints file information (name + size).
+
+    • If the path is a directory:
+          Prints a sorted list of entries with type indicators.
+
+    • If an unexpected error occurs:
+          A user-friendly message is printed, and a traceback is
+          written to stderr.
+
+OUTPUT FORMAT
+    [DIR]  <name>     — directory
+    [EXE]  <name>     — executable file
+    [FILE] <name>     — regular file
+    [ERR]  <name>     — entry could not be processed
+
+EXAMPLES
+    ls
+        Lists the current directory.
+
+    list /usr/bin
+        Lists all files in /usr/bin.
+
+    list myfile.txt
+        Shows information about a single file.
+
+NOTES
+    The module uses colorama if available.
+    If colorama is missing, it falls back to minimal ANSI colors.

@@ -1,0 +1,8 @@
+{
+  "name": "Empty_Bin",
+  "description": "Empty the system bin.",
+  "aliases": ["cls-bin"],
+  "args": [  ],
+  "category": "cleaning",
+  "group": "Empty bin"
+}

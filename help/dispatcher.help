@@ -1,0 +1,36 @@
+technical documentation
+
+The Dispatcher is the central control unit (command bus) of the system. It is responsible for dynamically loading logic, routing command-line arguments to the appropriate functions, and managing shortcuts (aliases).1. Architecture and Core ResponsibilitiesThe system is built on a modular architecture, allowing for functionality expansion without modifying the main script core.Dynamic Discovery: The Dispatcher scans the modules/ directory for Python scripts.Alias Management: It allows users to create short handles for long commands (e.g., e instead of echo). Aliases are persisted in an aliases.json file.Error Isolation: Every module execution is wrapped in a try-except block, preventing a single module's crash from taking down the entire REPL environment.2. Key Methods and FunctionsMethodDescriptiondispatch(args)The primary processing engine. It accepts a list of arguments, checks if the first one is an alias, and then loads and executes the corresponding module.register_alias(alias, target)Registers a new shortcut for an existing command or path in memory.load_aliases(path)Imports alias definitions from a JSON file. If the file is missing, the system starts with an empty list.refresh_metadata()Scans all modules to update information about available commands and their descriptions (used for generating help menus).start_watcher()Launches a background thread to monitor file changes. This enables "hot-reloading" of code without restarting the application.
+
+Method,Description
+dispatch(args),"The primary processing engine. It accepts a list of arguments, checks if the first one is an alias, and then loads and executes the corresponding module."
+"register_alias(alias, target)",Registers a new shortcut for an existing command or path in memory.
+load_aliases(path),"Imports alias definitions from a JSON file. If the file is missing, the system starts with an empty list."
+refresh_metadata(),Scans all modules to update information about available commands and their descriptions (used for generating help menus).
+start_watcher(),"Launches a background thread to monitor file changes. This enables ""hot-reloading"" of code without restarting the application."
+
+3. Operating Modes
+A. Direct Mode (CLI)
+The user triggers a command directly from the terminal: ./main.py module_name --options The Dispatcher loads the module, executes it, and immediately terminates the process.
+
+B. Interactive Mode (REPL)
+Triggered when no arguments are provided or when using the watch flag.
+
+Displays the ps> prompt.
+The Dispatcher stays in memory, which significantly speeds up execution as modules can be cached.
+Supports built-in administrative commands like aliases add or exit.
+
+C. Watch Mode (Observer)
+The advanced developer mode. The Dispatcher tracks changes in the source files. If you modify a module's code, the Dispatcher displays a notification, and the next execution of that command will automatically use the updated version.
+
+4. Logic Workflow
+Initialization: The Dispatcher instance is created, and aliases.json configurations are loaded.
+
+Input Parsing: The input string is broken down into an argument list (using shlex).
+Alias Expansion: If args[0] is found in the alias table, it is replaced with the full target command.
+Module Localization: The system looks for the file located at modules/{name}.py.
+Execution: The run(args) function (or equivalent) inside the module is invoked.
+Exit Handling: The exit code is returned to the operating system.
+
+5. Extensibility
+To add new functionality, simply create a new .py file in the modules/ folder. The Dispatcher will automatically detect it upon the next run or—in Watch Mode—immediately upon saving the file.
