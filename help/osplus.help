@@ -1,0 +1,58 @@
+OSPlus Text Editor 2.1.1 Build 20050331
+
+Introduction
+OSPlus is a collection of utilities for DOS (and now other operating systems too).
+The original OSPlus "bundle" contained a text editor, file viewer, directory browser 
+and a few other utilities, nearly all with a sort of graphical interface 
+(it was actually a text-mode interface but it looked reasonably graphical). 
+The OSPlus Utility Kit contained a smaller, updated version of the Text Editor, 
+and a number of other utilities (such as a Disk Imager).
+
+
+System Requirements
+Version 1.0 of OSPlus requires:
+
+MS-DOS 3.2 or higher, or FreeDOS. OSPlus should also run under DR-DOS, PC-DOS and so on.
+Around 2.5MB of disk space
+A CGA, EGA, VGA, 8514, 3270 or Hercules video adapter (VGA preferred)
+An 80386 or better processor for ViewPlus. The rest of OSPlus should work on slower 
+machines, although it is recommended that you use a 386 or better.
+At least 1MB of memory (OSPlus should work with no expanded memory and no extended memory,
+but slowly)
+A mouse is highly recommended. A mouse driver (such as MOUSE.COM, LMOUSE.COM or CuteMouse 
+is required to use a mouse)
+A Sound Blaster-compatible sound card is recommended, but not required
+Please note that OSPlus may not run under certain video adapters. OSPlus has only been 
+tested on a VGA card by myself, although the MODE utility has been used to make the 
+display monochrome and so on. The same applies to DOS versions: OSPlus may not run under 
+MS-DOS 3.2 - it has only been tested (by myself) under MS-DOS 6.2, Windows 98 (DOS 7.1), 
+FreeDOS and dosemu under Linux (under FreeDOS and Microsoft WinDOS 98). Some of it works 
+under dosemu under Linux.
+
+OSPlus Utility Kit 1.1 requires:
+
+MS-DOS 3.2 or higher or compatible (eg DR-DOS, PC-DOS, FreeDOS etc)
+About 500KB of disk space
+An 80386 or better processor for ViewPlus. The rest of Utility Kit 
+should work on an 8086 or better
+At least 512kb of memory
+A mouse is recommended for Text Editor and Disk Imager
+A Sound Blaster-compatible sound card if you want to use sound
+Please see the Open Source pages for details of system requirements for the 
+Open Source versions.
+
+You cannot run OSPlus in Windows 3.1 standard mode. It used to run in 
+386 Enhanced mode and also Windows 3.0 real and 386 enhanced mode, 
+but because of memory problems a Windows stub was created that stopped you from running 
+OSPlus in Windows. You can, of course, run it from DOS.
+
+OSPlus supports playing WAV files and there is a WAV player in every application's 
+system menu. It works with Sound Blaster-compatible cards and the internal speaker. 
+The Sound Blaster drivers were created by Heinz Rath. Please see the included README.TXT 
+for some important information about the sound drivers.
+
+The Utility Kit Text Editor (and Open Source version) supports a play-in-background 
+version of the WAV player. The real-mode DOS version uses Heinz Rath's sound drivers. 
+The DJGPP version uses Allegro (although a version without sound support is available). 
+The Win32 version uses Windows drivers, and the Linux version uses Allegro 
+(again, a version without sound is available).
