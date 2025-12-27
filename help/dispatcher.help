@@ -1,3 +1,226 @@
+📘 psCLI Dispatcher — Help File [EN]
+
+🧩 Overview
+The Dispatcher is the core component of psCLI. It is responsible for:
+
+- discovering modules in the modules/ directory
+- loading Python modules and external scripts
+- resolving and managing aliases
+- reading and generating module metadata
+- executing modules via their entry points (run, main, cli)
+- monitoring the modules directory for changes
+- logging and error reporting
+
+It allows commands like:
+pscli echo Hello
+pscli ls
+pscli myscript
+
+📂 Directory Structure
+project_root/
+│
+├── modules/
+│   ├── echo.py
+│   ├── list.py
+│   ├── external.cmd
+│   └── ...
+│
+├── metadata/
+│   ├── echo.meta.json
+│   ├── external.meta.json
+│   └── ...
+│
+├── aliases.json
+└── dispatcher.py
+
+User‑level files:
+%USERPROFILE%/.polsoft/settings/psCLI.json   ← user aliases
+%USERPROFILE%/.polsoft/log/pscCLI.log        ← log file (only if already exists)
+%USERPROFILE%/.polsoft/error/psCLIerror.txt ← error log
+
+---
+
+⚙️ Module Loading
+Dispatcher supports two categories of modules:
+
+1. Python modules (modules/*.py)
+Loaded via importlib.import_module.
+A Python module must expose at least one of:
+- run(args)
+- main(args)
+- cli(args)
+2. External scripts
+Supported extensions:
+.cmd, .exe, .bat, .ps1, .vbs, .reg
+
+Dispatcher returns the script path; execution is 
+handled externally (e.g., via subprocess).
+
+---
+
+🏷️ Alias System
+Aliases can come from:
+
+- aliases.json in the project root
+- user settings: %USERPROFILE%/.polsoft/settings/psCLI.json
+- module metadata (aliases field)
+- manual registration via register_alias()
+User aliases override repository aliases.
+
+Example aliases.json:
+{
+  "aliases": {
+    "e": "echo",
+    "ls": "list"
+  }
+}
+
+Example alias in module metadata:
+{
+  "name": "Echo",
+  "aliases": ["e", "repeat"]
+}
+
+---
+
+🧠 Module Metadata
+Dispatcher loads metadata in this order:
+
+- get_meta() function in the module
+- META, __meta__, or meta variable
+- metadata/<module>.meta.json
+- <module>.meta.json next to external scripts
+- JSON embedded in .cmd comments
+- auto‑generated stub metadata
+
+Example metadata:
+{
+  "name": "Echo",
+  "description": "Prints text to console",
+  "aliases": ["e"],
+  "args": ["text"],
+  "category": "utility"
+}
+
+---
+
+🔍 Module Discovery
+discover() scans the modules/ directory for files with extensions:
+.py, .cmd, .exe, .bat, .ps1, .vbs, .reg
+
+It returns a sorted list of module names.
+
+---
+
+🔄 Watcher (Automatic Module Reloading)
+The dispatcher can monitor the modules/ directory:
+start_watcher(callback, interval=1.0)
+
+It detects:
+- added modules
+- removed modules
+- modified modules
+
+On change:
+- metadata is refreshed
+- callback is executed
+- a system notification is attempted (Toast or PowerShell popup)
+
+---
+
+📝 User Settings
+Stored at:
+%USERPROFILE%/.polsoft/settings/psCLI.json
+
+Example:
+{
+  "aliases": {
+    "e": "echo",
+    "ll": "list"
+  }
+}
+
+---
+
+🧰 Key Dispatcher Methods
+|  |  | 
+| discover() |  | 
+| load(name) |  | 
+| resolve(cmd) |  | 
+| register_alias(a, t) |  | 
+| remove_alias(a) |  | 
+| list_commands() |  | 
+| get_metadata(name) |  | 
+| print_module_help(name) |  | 
+| start_watcher() |  | 
+| stop_watcher() |  | 
+
+---
+
+🖥️ Module Help Display
+Dispatcher uses metadata to print help:
+print_module_help("echo")
+
+If no metadata exists:
+- prints module docstring
+- or shows “No help available”
+
+---
+
+🧨 Error Handling
+Custom exceptions:
+- DispatcherError
+- ModuleLoadError
+- CommandNotFoundError
+- EntryPointError
+Errors are logged to:
+%USERPROFILE%/.polsoft/error/psCLIerror.txt
+
+---
+
+📦 Example Python Module
+modules/echo.py:
+
+META = {
+    "name": "Echo",
+    "description": "Prints text to console",
+    "aliases": ["e"],
+    "args": ["text"]
+}
+
+def run(args):
+    print(" ".join(args))
+
+---
+
+🧪 Example Usage
+> pscli e Hello world
+Hello world
+
+> pscli list
+echo
+list
+external
+
+---
+
+🎯 Summary
+The Dispatcher provides:
+- dynamic module discovery
+- Python + external script support
+- alias management
+- metadata loading and generation
+- automatic module change detection
+- logging and error handling
+It is the command execution backbone of psCLI.
+
+If you'd like, I can also:
+- generate a short version for end users
+- create a Markdown README
+- produce a man‑page style help
+- generate a CLI --help output
+Just tell me what format you prefer.
+
 technical documentation
 
 The Dispatcher is the central control unit (command bus) of the system. It is responsible for dynamically loading logic, routing command-line arguments to the appropriate functions, and managing shortcuts (aliases).1. Architecture and Core ResponsibilitiesThe system is built on a modular architecture, allowing for functionality expansion without modifying the main script core.Dynamic Discovery: The Dispatcher scans the modules/ directory for Python scripts.Alias Management: It allows users to create short handles for long commands (e.g., e instead of echo). Aliases are persisted in an aliases.json file.Error Isolation: Every module execution is wrapped in a try-except block, preventing a single module's crash from taking down the entire REPL environment.2. Key Methods and FunctionsMethodDescriptiondispatch(args)The primary processing engine. It accepts a list of arguments, checks if the first one is an alias, and then loads and executes the corresponding module.register_alias(alias, target)Registers a new shortcut for an existing command or path in memory.load_aliases(path)Imports alias definitions from a JSON file. If the file is missing, the system starts with an empty list.refresh_metadata()Scans all modules to update information about available commands and their descriptions (used for generating help menus).start_watcher()Launches a background thread to monitor file changes. This enables "hot-reloading" of code without restarting the application.
