@@ -1,0 +1,8 @@
+{
+  "name": "Rock-Paper-Scissors",
+  "description": "This is a quick classic game.",
+  "aliases": ["g-rps"],
+  "args": [  ],
+  "group": "Party game",
+  "category": "Games"
+}

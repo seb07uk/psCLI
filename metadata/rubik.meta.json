@@ -1,0 +1,8 @@
+{
+  "name": "Rubik-s-Cube",
+  "description": "Rotate cube faces until each side is a single color.",
+  "aliases": ["g-rubik"],
+  "args": []
+  ,"group": "Logic Puzzle",
+  "category": "Games"
+}

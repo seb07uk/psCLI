@@ -1,0 +1,8 @@
+{
+  "name": "DirectX",
+  "description": "DirectX End-User Runtime Web Installer via WinGet",
+  "aliases": ["set-directx"],
+  "args": [  ],
+  "category": "Installer",
+  "group": "Drivers"
+}

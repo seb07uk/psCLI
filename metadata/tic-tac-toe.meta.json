@@ -1,0 +1,8 @@
+{
+  "name": "Tic-Tac-Toe",
+  "description": "2 Player games.",
+  "aliases": ["g-ttt"],
+  "args": []
+  ,"group": "Logic",
+  "category": "Games"
+}

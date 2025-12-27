@@ -1,0 +1,8 @@
+{
+  "name": "Minesweeper",
+  "description": "Explore fields, avoid mines!",
+  "aliases": ["g-mine"],
+  "args": [  ],
+  "group": "Minesweeper",
+  "category": "Games"
+}

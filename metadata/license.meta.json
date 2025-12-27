@@ -1,0 +1,8 @@
+{
+  "name": "license",
+  "description": "License info",
+  "aliases": ["lic"],
+  "args": [],
+  "group": "License",
+  "category": "System"
+}

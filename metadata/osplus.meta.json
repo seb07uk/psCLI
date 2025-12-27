@@ -1,0 +1,8 @@
+{
+  "name": "OSPlus",
+  "description": "OSPlus Text Editor v2.1.1",
+  "aliases": ["osplus"],
+  "args": [  ],
+  "group": "Text Editor",
+  "category": "Office"
+}
