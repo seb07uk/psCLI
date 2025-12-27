@@ -1,0 +1,8 @@
+{
+  "name": "clr_Defender_History",
+  "description": "Clear Windows Defender History module.",
+  "aliases": ["clr-wdh"],
+  "args": [  ],
+  "category": "cleaning",
+  "group": "Def.History"
+}

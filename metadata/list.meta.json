@@ -1,0 +1,8 @@
+{
+  "name": "list",
+  "description": "List files and modules with colored output.",
+  "aliases": ["list", "ls"],
+  "args": []
+  ,"group": "core",
+  "category": "utility"
+}

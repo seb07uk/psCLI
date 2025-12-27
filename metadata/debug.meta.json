@@ -1,0 +1,8 @@
+{
+  "name": "Debug",
+  "description": "Diagnostic and logging tool.",
+  "aliases": ["debug", "dbg"],
+  "args": []
+  ,"group": "Diagnostic",
+  "category": "Tools"
+}
