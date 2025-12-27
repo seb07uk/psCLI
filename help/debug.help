@@ -1,0 +1,59 @@
+DEBUG MODULE v2.1 (Pro)
+Advanced Batch Logging Engine
+=====================================================================
+
+WHAT THE DEBUGGER IS USED FOR:
+  The debugger is a diagnostic and logging tool designed to:
+    • record events, messages, warnings and errors,
+    • track the execution flow of scripts and applications,
+    • analyze problems and unexpected behavior,
+    • automatically log system and application activity in real time,
+    • execute external scripts (.py, .ps1) and programs (.exe)
+      while logging their invocation.
+
+  This module helps with:
+    • debugging BAT / PowerShell / Python scripts,
+    • monitoring installers and CLI tools,
+    • building custom logging systems,
+    • analyzing failures and warnings,
+    • maintaining clean and structured log files.
+
+USAGE:
+  debug [level/alias] "message"
+  call debug [level/alias] "message"   (inside .bat files)
+
+LOGGING LEVELS & ALIASES:
+  INFO      (i)        - General system information
+  SUCCESS   (s, ok)    - Positive task completion
+  WARN      (w)        - Non‑critical issues or warnings
+  ERROR     (e, err)   - Failures and critical problems
+
+  CUSTOM    - Any other string becomes a custom log level
+
+SYSTEM COMMANDS:
+  clean     - Deletes the current log file
+  trace     - Shows user, machine and working directory context
+  help      - Displays this help documentation
+
+SCRIPT EXECUTION SUPPORT:
+  The debug module automatically detects and runs:
+
+      .py   → Python interpreter
+      .ps1  → PowerShell script
+      .exe  → Native executable
+
+  Examples:
+      debug script.py "argument"
+      debug deploy.ps1 "prod"
+      debug installer.exe "/silent"
+
+LOG FILE:
+  All logs are automatically appended to:
+      C:\Users\<user>\.polsoft\psCLI\Log\debugger_trace.log
+
+AUTHOR:
+  Sebastian Januchowski
+  polsoft.its@fastservice.com
+  https://github.com/seb07uk
+
+=====================================================================
