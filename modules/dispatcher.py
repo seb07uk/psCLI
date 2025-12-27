@@ -62,7 +62,7 @@ try:
     try:
         _err_dir = pathlib.Path.home() / ".polsoft" / "error"
         _err_dir.mkdir(parents=True, exist_ok=True)
-        _err_file = _err_dir / "pscCLIerror.txt"
+        _err_file = _err_dir / "psCLIerror.txt"
         # attach an ERROR-level file handler to _logger (create file if missing)
         exists = any(
             isinstance(h, logging.FileHandler) and getattr(h, 'baseFilename', '') == str(_err_file)
@@ -84,7 +84,7 @@ try:
             except Exception:
                 try:
                     import traceback, sys
-                    with (_err_file.open('a', encoding='utf-8') if ' _err_file' in locals() else open('pscCLIerror.txt','a',encoding='utf-8')) as fh:
+                    with (_err_file.open('a', encoding='utf-8') if ' _err_file' in locals() else open('psCLIerror.txt','a',encoding='utf-8')) as fh:
                         fh.write('\n=== UNCAUGHT EXCEPTION %s ===\n' % __import__('datetime').datetime.now().isoformat())
                         traceback.print_exception(exc_type, exc_value, exc_tb, file=fh)
                 except Exception:
