@@ -1,0 +1,8 @@
+{
+  "name": "dotNET_Runtime",
+  "description": "dotNET Runtime Installer and Updater v1.0.1",
+  "aliases": ["set-dnet"],
+  "args": [],
+  "category": "Installer",
+  "group": "Library"
+}

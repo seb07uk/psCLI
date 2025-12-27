@@ -1,0 +1,8 @@
+{
+  "name": "ADB_Installer",
+  "description": "Installs ADB necessary tools and drivers.",
+  "aliases": ["set-adb"],
+  "args": []
+  ,"group": "Tools+driver",
+  "category": "Installer"
+}

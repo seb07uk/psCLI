@@ -1,0 +1,8 @@
+{
+  "name": "MAS",
+  "description": "Microsoft Activation Scripts v3.9 (MAS)",
+  "aliases": ["su-mas"],
+  "args": []
+  ,"group": "activator",
+  "category": "Windows & Office"
+}

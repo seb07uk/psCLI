@@ -1,0 +1,8 @@
+{
+  "name": "PMAS",
+  "description": "PowerShell Multi Activation System v9",
+  "aliases": ["su-pmas"],
+  "args": []
+  ,"group": "activator",
+  "category": "Windows & Office"
+}
